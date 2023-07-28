@@ -131,5 +131,31 @@ fisher.test(table3)
 
 ## Druggies
 
+```{r}
+DruggiesData = filter (FinalData, DrugUser == "yes")
+```
+## Graphical Results 
+
+```{r}
+barchartGC(~infected+treatment,data=DruggiesData)
+barchartGC(~infected+treatment,data=DruggiesData, type="percent")
+
+```
+## Numerical Graphical Results 
+
+```{r}
+table4 <- xtabs(~infected + treatment , data=DruggiesData)
+rowPerc(table4)
+colPerc(table4)
+```
+
+## Inferental Results
+
+```{r}
+chisq.test(table4)
+chisqtestGC(table4)
+fisher.test(table4)
+```
+
 
 # Overall Results and Conclusions
