@@ -45,7 +45,20 @@ The method we will use to display the data is a bar chart,cross tabel , and chi 
 maleData = filter (FinalData,sex == "M")
 ```
 
+## Graphical Results 
+```{r}
+barchartGC(~infected+treatment,data=maleData)
+barchartGC(~infected+treatment,data=maleData, type="percent")
 
+```
+
+## Numerical Graphical Results 
+
+```{r}
+table1 <- xtabs(~infected + treatment , data=maleData)
+rowPerc(table1)
+colPerc(table1)
+```
 
 ## Females
 
