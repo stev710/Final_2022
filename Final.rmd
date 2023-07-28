@@ -74,8 +74,58 @@ femaleData = filter (FinalData,sex == "F")
 
 ## Females
 
+## Graphical Results 
+```{r}
+barchartGC(~infected+treatment,data=femaleData)
+barchartGC(~infected+treatment,data=femaleData, type="percent")
+
+```
+
+## Numerical Graphical Results 
+
+```{r}
+table2 <- xtabs(~infected + treatment , data=femaleData)
+rowPerc(table2)
+colPerc(table2)
+```
+## Inferental Results
+
+```{r}
+chisq.test(table2)
+chisqtestGC(table2)
+fisher.test(table2)
+```
+
 
 ## LGBTQ
+
+```{r}
+LGBTQData = filter (FinalData,LGBTQ == "gay")
+```
+
+## Graphical Results 
+
+```{r}
+barchartGC(~infected+treatment,data=LGBTQData)
+barchartGC(~infected+treatment,data=LGBTQData, type="percent")
+
+```
+
+## Numerical Graphical Results 
+```{r}
+table3 <- xtabs(~infected + treatment , data=LGBTQData)
+rowPerc(table3)
+colPerc(table3)
+```
+
+## Inferental Results
+
+```{r}
+chisq.test(table3)
+chisqtestGC(table3)
+fisher.test(table3)
+```
+
 
 
 
