@@ -51,8 +51,7 @@ barchartGC(~infected+treatment,data=maleData)
 barchartGC(~infected+treatment,data=maleData, type="percent")
 
 ```
-Based on the graph, it is showing us from all male that the group of people who contracted COVID and the ones who received the vaccine had less symptoms than those that received the placebo, while the group that didn't contract COVID showed no difference between those who were vaccinated and unvaccinated.
-
+Based on the graph, it is showing us from the all male group of people who contracted COVID and the ones who received the vaccine had less symptoms than those that received the placebo, while the group that didn't contract COVID showed no difference between those who were vaccinated and un-vaccinated.
 
 
 ## Numerical Graphical Results 
