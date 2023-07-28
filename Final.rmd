@@ -60,6 +60,18 @@ rowPerc(table1)
 colPerc(table1)
 ```
 
+## Inferental Results 
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+```{r}
+femaleData = filter (FinalData,sex == "F")
+```
+
 ## Females
 
 
