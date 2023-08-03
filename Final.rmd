@@ -8,14 +8,13 @@ output:
     toc_depth: 5
 date: "`r Sys.Date()`" 
 ---
-
 ```{r include=FALSE,echo=FALSE}
 require(tidyverse)
 require(tigerstats)
 require(forcats)
 FinalDat <-read.csv(file="final.csv",header=TRUE)
 #recode to remove the annoying "X" from the dataframe
-FinalData <- FinalDat  %>% select(-one_of("X"))
+FinalData <- FinalDat %>% select(-one_of("X"))
 FinalData <- FinalData %>%
 mutate(across(where(is.character), as.factor))
 ```
@@ -24,142 +23,44 @@ mutate(across(where(is.character), as.factor))
 
 A new  preventative vaccine (covid921) is under test in clinical trials. Given the nature of this vaccine it is suspected that the drug may exhibit different effectiveness across the variety of subpopulations tracked. Consider population subgroups by gender( guys and gals), drug use, and sexual orientation. Write a complete report that separately considers this drug for each subgroup and your recommendations as to whether people in the subgroup should take the vaccine. Structure your report in four sections each devoted to one of the four subgroups, use null and alternative hypothesis statements and correct statistical verbage when referencing p-values in conclusions.
 
-$H_0$ : The covid vaccine  is not  effective in treating covid among subgroups.
+$H_0$ The COVID vaccine has no effect on people in different subgroups.
 
 
-$H_A$ : The covid vaccine is effective in treating  covid among subgroups.
-
+$H_A$ The COVID vaccine does have an effect on people different subgroups.
 
 ## Methods 
 
+This statistical analysis we will be using is catergorical ~ categorical, because the COVID vaccine should be effective among subgroups
 
-The statistical analysis well be using is cat~ cat because the covid vaccine should be effective among subgroups.
+The method we will be using to display the data us a bar chart, cross table, and chisq test
 
-The method we will use to display the data is a bar chart,cross tabel , and chi squared test 
-
-## Males
-
+# Males
 
 ## Results
+
 ```{r}
 maleData = filter (FinalData,sex == "M")
 ```
+## Descriptive Results
 
-## Graphical Results 
+### Graphical Descriptive 
+
 ```{r}
 barchartGC(~infected+treatment,data=maleData)
 barchartGC(~infected+treatment,data=maleData, type="percent")
 
 ```
-Based on the graph, it is showing us from the all male group of people who contracted COVID and the ones who received the vaccine had less symptoms than those that received the placebo, while the group that didn't contract COVID showed no difference between those who were vaccinated and un-vaccinated.
 
+Based on the graph, it is showing us that the group of people who contracted COVID and the ones who received the vaccine had less symptoms than those that received the placebo, while the all male group that didn't contract COVID showed no difference between those who were vaccinated and unvaccinated. 
 
-## Numerical Graphical Results 
+### Numerical Descriptive
 
 ```{r}
-table1 <- xtabs(~infected + treatment , data=maleData)
+table1 <- xtabs(~infected + treatment, data=maleData)
 rowPerc(table1)
 colPerc(table1)
 ```
 
-## Inferental Results 
-
-```{r}
-chisq.test(table1)
-chisqtestGC(table1)
-fisher.test(table1)
-```
-
-```{r}
-femaleData = filter (FinalData,sex == "F")
-```
-
-## Females
-
-## Graphical Results 
-```{r}
-barchartGC(~infected+treatment,data=femaleData)
-barchartGC(~infected+treatment,data=femaleData, type="percent")
-
-```
-
-## Numerical Graphical Results 
-
-```{r}
-table2 <- xtabs(~infected + treatment , data=femaleData)
-rowPerc(table2)
-colPerc(table2)
-```
-## Inferental Results
-
-```{r}
-chisq.test(table2)
-chisqtestGC(table2)
-fisher.test(table2)
-```
+This table is showing that 69.57% of the unvaccinated male group experienced symptoms while only 30.43% of the vaccinated males experienced symptoms. It is also telling us that the male placebo group, 2.55% of them contracted COVID while only 1.15% of the vaccinated group contracted COVID.
 
 
-## LGBTQ
-
-```{r}
-LGBTQData = filter (FinalData,LGBTQ == "gay")
-```
-
-## Graphical Results 
-
-```{r}
-barchartGC(~infected+treatment,data=LGBTQData)
-barchartGC(~infected+treatment,data=LGBTQData, type="percent")
-
-```
-
-## Numerical Graphical Results 
-```{r}
-table3 <- xtabs(~infected + treatment , data=LGBTQData)
-rowPerc(table3)
-colPerc(table3)
-```
-
-## Inferental Results
-
-```{r}
-chisq.test(table3)
-chisqtestGC(table3)
-fisher.test(table3)
-```
-
-
-
-
-## Druggies
-
-```{r}
-DruggiesData = filter (FinalData, DrugUser == "yes")
-```
-## Graphical Results 
-
-```{r}
-barchartGC(~infected+treatment,data=DruggiesData)
-barchartGC(~infected+treatment,data=DruggiesData, type="percent")
-
-```
-## Numerical Graphical Results 
-
-```{r}
-table4 <- xtabs(~infected + treatment , data=DruggiesData)
-rowPerc(table4)
-colPerc(table4)
-```
-
-## Inferental Results
-
-```{r}
-chisq.test(table4)
-chisqtestGC(table4)
-fisher.test(table4)
-```
-The p value is 4.631e-14 making it to small to be in significant therfore disproving the null hypothesis
-
-Based on Fishers exact value You become .35% more susceptible to contracting covid if you are unvaccinated 
-
-# Overall Results and Conclusions
