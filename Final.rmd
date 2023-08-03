@@ -63,4 +63,25 @@ colPerc(table1)
 
 This table is showing that 69.57% of the unvaccinated male group experienced symptoms while only 30.43% of the vaccinated males experienced symptoms. It is also telling us that the male placebo group, 2.55% of them contracted COVID while only 1.15% of the vaccinated group contracted COVID.
 
+## Descriptive Results
+
+### Graphical Descriptive 
+
+```{r}
+barchartGC(~infected+treatment,data=maleData)
+barchartGC(~infected+treatment,data=maleData, type="percent")
+
+```
+
+Based on the graph, it is showing us that the group of people who contracted COVID and the ones who received the vaccine had less symptoms than those that received the placebo, while the all male group that didn't contract COVID showed no difference between those who were vaccinated and unvaccinated. 
+
+### Numerical Descriptive
+
+```{r}
+table1 <- xtabs(~infected + treatment, data=maleData)
+rowPerc(table1)
+colPerc(table1)
+```
+
+This table is showing that 69.57% of the unvaccinated male group experienced symptoms while only 30.43% of the vaccinated males experienced symptoms. It is also telling us that the male placebo group, 2.55% of them contracted COVID while only 1.15% of the vaccinated group contracted COVID.
 
