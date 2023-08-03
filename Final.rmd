@@ -137,3 +137,44 @@ Based on this chisq test, the p-value is 0.0002732, showing that there is a sign
 
 For the fisher exact test show that the odds are about 1.50%, suggesting that there is a significant correlation between the variables, showing that there is strong evidence directing that we are rejecting the null hypothesis. 
 
+# LGBTQ
+
+## Results
+
+```{r}
+LGBTQData = filter (FinalData,LGBTQ == "gay")
+```
+
+## Descriptive Results
+
+### Graphical Descriptive 
+
+```{r}
+barchartGC(~infected+treatment,data=LGBTQData)
+barchartGC(~infected+treatment,data=LGBTQData, type="percent")
+
+```
+This graph is showing that within the LGBTQ subgroup, those who got COVID and got vaccinated experienced significantly more symptoms than those their unvaccinated counterpart. Those who did not get COVID and were both vaccinated and unvaccinated did not show any difference.
+
+
+### Numerical Descriptive
+
+```{r}
+table3 <- xtabs(~infected + treatment, data=LGBTQData)
+rowPerc(table3)
+colPerc(table3)
+```
+This table is showing that within the LGBTQ placebo group they experienced 15.38% of symptoms while the the vaccinated group experienced 84.62% of syptoms. It is also showing that 0.66% of the LGBTQ group who had the placebo contracted COVID, while 3.54% of the vaccinated group contracted COVID.
+
+### Inferential Results
+
+```{r}
+chisq.test(table3)
+chisqtestGC(table3)
+fisher.test(table3)
+```
+
+The chisq test shows that the p-value for the LGBTQ group is 0.0000006668 showing that there is an effect between the COVID vaccine and the LGBT subgroup, concluding that we are rejecting the null hypothesis.  
+
+In the fisher exact test, the percentage odds ratio is about 0.18%, showing that the odds are about 0.18 times lower in one variable group compared to the other, showing a difference between the two groups, which is another example of rejecting the null hypothesis in this group.
+
