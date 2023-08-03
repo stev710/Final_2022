@@ -178,3 +178,39 @@ The chisq test shows that the p-value for the LGBTQ group is 0.0000006668 showin
 
 In the fisher exact test, the percentage odds ratio is about 0.18%, showing that the odds are about 0.18 times lower in one variable group compared to the other, showing a difference between the two groups, which is another example of rejecting the null hypothesis in this group.
 
+# Druggies
+
+## Results
+
+```{r}
+DruggiesData = filter(FinalData, DrugUser == "yes")
+```
+
+## Descriptive Results
+
+### Graphical Descriptive 
+
+```{r}
+barchartGC(~infected+treatment,data=DruggiesData)
+barchartGC(~infected+treatment,data=DruggiesData, type="percent")
+
+```
+
+This graph us showing that from the drug user group who contracted COVID, the ones who received the vaccine had more symptoms than those with the placebo while drug user group that did not contract COVID showed no difference between those who were vaccinated and not vaccinated.
+
+### Numerical Descriptive
+
+```{r}
+table4 <- xtabs(~infected + treatment, data=DruggiesData)
+rowPerc(table4)
+colPerc(table4)
+```
+This table is showing that within the placebo drug user group, they experience 11.67% of symptoms while the vaccinated group experienced 88.33% of symptoms. It is also showing that 0.4% of the placebo group contracted COVID, while 3.06% of the vaccinated drug user group contracted COVID. There is a significant difference and effect between the placebo and COVID vaccine.
+
+### Inferential Results
+
+```{r}
+chisq.test(table4)
+chisqtestGC(table4)
+fisher.test(table4)
+```
