@@ -85,3 +85,34 @@ colPerc(table1)
 
 This table is showing that 69.57% of the unvaccinated male group experienced symptoms while only 30.43% of the vaccinated males experienced symptoms. It is also telling us that the male placebo group, 2.55% of them contracted COVID while only 1.15% of the vaccinated group contracted COVID.
 
+### Inferential Results
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+The p-value is 0.0000000000001098, concluding that the p value is so small that we are rejecting the null hypothesis. Showing that COVID vaccine is effective between the male subgroup.
+
+Based on the Fisher exact test, we got a p-value of 0.0000000000004631 concluding this is giving a strong basis for the observed association between variables meaning we are rejecting the null hypothesis. The odds in this fisher test are showing males have a 2.24% chance of the events odds happening in one group gicing more evidence to the positive association of the variables.
+
+# Females
+
+## Results
+
+```{r}
+femaleData = filter (FinalData,sex == "F")
+```
+
+## Descriptive Results
+
+### Graphical Descriptive 
+
+```{r}
+barchartGC(~infected+treatment,data=femaleData)
+barchartGC(~infected+treatment,data=femaleData, type="percent")
+```
+
+This graph is showing that from the all female group who contracted COVID, the ones who received the vaccine had less symptoms than those with the placebo while the all the female group that did not contract COVID showed no difference between those who were vaccinated and not vaccinated. 
+
