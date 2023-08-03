@@ -214,3 +214,22 @@ chisq.test(table4)
 chisqtestGC(table4)
 fisher.test(table4)
 ```
+
+
+Based on this chisq test, the p-value is 0.00000002842 
+
+The fisher exact test showed a p-value of 0.00000232, which is showing that there is a  odds ratio of about 0.12%, suggesting that the odds of this occuring are lower in one group compared to the other, the 95% confidence ineravl supports this 
+
+# Overall Results and Conclusions
+
+In conclusion, the effectiveness of the COVID vaccine varies between subgroups. Staring with the all male group, we are rejecting the null hypothesis. Based on the bar chart, numerical graph, and the chisq and fisher tests, we can conclude that men who received the COVID vaccine and contracted it ultimately experience less symptoms than those who received the placebo. The men that did not get vaccinated and did not contract COVID showed little to no difference between eachother. In the group that did receive the placebo had an infection rate of 2.55%, and those of them who got the vaccine had an infection rate of 1.15%, showing that the vaccine is effective in men, therefore we are rejecting the null hypothesis for the male group. 
+
+Moving onto the all female group, we are also rejecting the null hypothesis. Based on all of the tests we have run, we can conclude that women who received the COVID vaccine and contracted it also experienced less symptoms than the women who received the placebo. The female group that did not get vaccinated and did not contract COVID also showed little to no difference compared to each other. Within the group that did receive the placebo, they had an infection rate of 2.04%. The group that received the vaccine had an infection rate of 1.37%, concluding that the vaccine is effective in women, therefore rejecting the null hypothesis for the female subgroup.
+
+Comparing the male and female subgroups, women had a smaller percentage of infection with the COVID vaccine and placebo than then men by 0.22% and 0.51%. It is not a big difference, but so far within the data analysis women experience less symptoms with the COVID vaccine. 
+
+In the LGBTQ subgroup, we are rejecting the null hypothesis. Based on our tests, we can conclude that the COVID vaccine is effective in this subgroup, but negatively. We found out that the LGBTQ people who received the COVID vaccine and contracted it experienced significant symptoms than those who received the placebo. The LGBTQ group that did not get vaccinated and did not contract COVID were almost exactly the same, showing no difference. In the LGBTQ group that did receive the placebo had an infection rate of 0.66% and those who did receive the vaccine had an infection rate of 3.54%, a very significant difference between the two, therefore rejecting the null hypothesis since the vaccine had an effect on the group.
+
+Finally, for the drug user group, they received the same result as the LGBTQ subgroup. We are rejecting the null hypothesis due to the drug users experiencing significantly more symptoms than the placebo group, showing that the COVID vaccine did have an effect, but not a positive one In the group of drug users that were vaccinated and contracted COVID, they had a 3.06% infection rate. The placebo group had a 0.4% infection rate showing a very big difference between the two and how much symptoms each group got, once again, we are rejecting the null.
+
+Comparing all of the tests from most positive COVID affects to the more negative COVID affects, the female had the best results with the COVID vaccine, while the LGBTQ subgroup had it the worst, experiencing the most symptoms while having COVID even with the vaccine. Males had almost the same results as the females, just a little less and drug users had fewer symptoms by only 0.48%. I would recommend that only males and females that are not drug users or LGBTQ to get the COVID vaccine since the effect was more positive than it was for the other two subgroups. 
